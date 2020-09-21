@@ -1,0 +1,33 @@
+{
+  "name": "contact-us-form",
+  "version": "1.0.0",
+  "description": "contact up form. Just Utah Coders",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack -d --watch",
+    "start": "live-server client/dist/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jchen0506/contact-us-form.git"
+  },
+  "author": "Jing Chen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jchen0506/contact-us-form/issues"
+  },
+  "homepage": "https://github.com/jchen0506/contact-us-form#readme",
+  "dependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "axios": "^0.20.0",
+    "babel-loader": "^8.1.0",
+    "live-server": "^1.2.1",
+    "path": "^0.12.7",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  }
+}
