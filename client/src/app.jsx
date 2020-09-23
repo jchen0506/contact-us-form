@@ -68,7 +68,7 @@ const App = () => {
         info
       )
       .then(() => {
-        console.log('Your information has been successfully submitted');
+        setSubmitted('Your information has been successfully submitted');
         setName('');
         setEmail('');
         setBOD('');
@@ -125,7 +125,9 @@ const App = () => {
           Submit
         </button>
       </form>
-      <p>{error}</p>
+      <p>
+        {error} {submitted}
+      </p>
     </div>
   );
 };
