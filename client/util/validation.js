@@ -23,7 +23,7 @@ module.exports = {
 
     valid = reg.test(bod);
     if (bod !== '' && !valid) {
-      return 'Please enter a valid date in format of YYYY-MM-DD between 1900 and 2099';
+      return 'Please enter a valid date';
     } else return '';
   },
 };

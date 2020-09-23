@@ -1,0 +1,60 @@
+* {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  margin: 20px auto;
+  border: 1px solid gray;
+  width: 40vw;
+  padding: 2em;
+}
+
+.lables {
+  display: block;
+  font-size: 1.2em;
+  margin-top: 1.2em;
+  margin-bottom: 0.8em;
+}
+
+.info {
+  display: block;
+  width: 100%;
+  font-size: 1.5em;
+}
+
+#consent {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
+}
+
+#check {
+  margin-right: 1em;
+  transform: scale(1.5);
+}
+
+#buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+button {
+  width: 5em;
+  height: 2em;
+  font-size: 1.5em;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#notification {
+  float: right;
+  width: 60%;
+  font-size: 1.2em;
+  color: red;
+}

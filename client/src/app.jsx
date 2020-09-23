@@ -10,7 +10,6 @@ const App = () => {
   const [isChecked, setChecked] = useState(false);
   const [valid, setValid] = useState(false);
   const [error, setError] = useState('');
-  const [submitted, setSubmitted] = useState('');
 
   useEffect(() => {
     validation();
@@ -38,6 +37,7 @@ const App = () => {
     setEmail('');
     setBOD('');
     setChecked(false);
+    setSubmitted('');
   };
 
   var validation = () => {
@@ -68,7 +68,7 @@ const App = () => {
         info
       )
       .then(() => {
-        setSubmitted('Your information has been successfully submitted');
+        alert('Your information has been successfully submitted');
         setName('');
         setEmail('');
         setBOD('');
@@ -78,56 +78,67 @@ const App = () => {
         console.log('Error. Info did not be submitted');
       });
   };
+
   return (
-    <div>
+    <div className="container">
       <h1>Contact Us</h1>
+      <p id="notification">{error}</p>
       <form>
-        <lable>
-          Name:
+        <lable className="lables" htmlFor="name">
+          Name
+        </lable>
+
+        <input
+          className="info"
+          id="name"
+          onChange={nameChange}
+          onBlur={() => setError(validName(name))}
+          type="text"
+          value={name}
+          placeholder="Your full name"
+        />
+
+        <lable className="lables" htmlFor="email">
+          Email
+        </lable>
+        <input
+          id="email"
+          className="info"
+          onChange={emailChange}
+          onBlur={() => setError(validEmail(email))}
+          type="text"
+          value={email}
+          placeholder="name@domain.sth"
+        />
+
+        <lable className="lables" htmlFor="bod">
+          Birth date
+        </lable>
+        <input
+          id="bod"
+          className="info"
+          onChange={bodChange}
+          onBlur={() => setError(validBod(bod))}
+          type="text"
+          value={bod}
+          placeholder="YYYY-MM-DD"
+        />
+        <div id="consent">
           <input
-            onChange={nameChange}
-            onBlur={() => setError(validName(name))}
-            type="text"
-            value={name}
-            placeholder="Your full name"
+            id="check"
+            type="checkbox"
+            checked={isChecked}
+            onChange={checkChange}
           />
-        </lable>
-        <br />
-        <lable>
-          Email:
-          <input
-            onChange={emailChange}
-            onBlur={() => setError(validEmail(email))}
-            type="text"
-            value={email}
-            placeholder="Your Email"
-          />
-        </lable>
-        <br />
-        <lable>
-          Birth date:
-          <input
-            onChange={bodChange}
-            onBlur={() => setError(validBod(bod))}
-            type="text"
-            value={bod}
-            placeholder="YYYY-MM-DD"
-          />
-        </lable>
-        <br />
-        <lable>
-          <input type="checkbox" checked={isChecked} onChange={checkChange} />I
-          agree to be contacted via email.
-        </lable>
-        <br />
-        <button onClick={clearClick}>Clear</button>
-        <button onClick={formSubmit} disabled={valid ? '' : 'disabled'}>
-          Submit
-        </button>
+          <lable htmlFor="check">I agree to be contacted via email.</lable>
+        </div>
+        <div id="buttons">
+          <button onClick={clearClick}>Clear</button>
+          <button onClick={formSubmit} disabled={valid ? '' : 'disabled'}>
+            Submit
+          </button>
+        </div>
       </form>
-      <p>
-        {error} {submitted}
-      </p>
     </div>
   );
 };
