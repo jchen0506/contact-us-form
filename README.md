@@ -39,7 +39,6 @@ npm start
 
 👤 **Jing Chen**
 
-- Website: https://www.linkedin.com/in/jing-chen-cs/
 - Github: [@jchen0506](https://github.com/jchen0506)
 - LinkedIn: [@https:\/\/www.linkedin.com\/in\/jing-chen-cs\/](https://linkedin.com/in/https://www.linkedin.com/in/jing-chen-cs/)
 
