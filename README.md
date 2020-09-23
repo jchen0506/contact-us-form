@@ -13,10 +13,10 @@
 </p>
 
 > Contact us form for Just Utah Coders interview
-> ![](demo.gif)
+
 
 ### 🏠 [Homepage](https://github.com/jchen0506/contact-us-form#readme)
-
+![](demo.gif)
 ## Install
 
 ```sh
