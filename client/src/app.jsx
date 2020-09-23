@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { validName, validEmail, validBod } from '../util/validation.js';
+import axios from 'axios';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -9,6 +10,7 @@ const App = () => {
   const [isChecked, setChecked] = useState(false);
   const [valid, setValid] = useState(false);
   const [error, setError] = useState('');
+  const [submitted, setSubmitted] = useState('');
 
   useEffect(() => {
     validation();
@@ -51,6 +53,31 @@ const App = () => {
     }
   };
 
+  var formSubmit = (e) => {
+    e.preventDefault();
+    let info = {
+      name: name,
+      email: email,
+      bod: bod,
+      emailConsent: isChecked,
+    };
+
+    axios
+      .post(
+        'https://my-json-server.typicode.com/JustUtahCoders/interview-users-api/users',
+        info
+      )
+      .then(() => {
+        console.log('Your information has been successfully submitted');
+        setName('');
+        setEmail('');
+        setBOD('');
+        setChecked(false);
+      })
+      .catch(() => {
+        console.log('Error. Info did not be submitted');
+      });
+  };
   return (
     <div>
       <h1>Contact Us</h1>
@@ -84,7 +111,7 @@ const App = () => {
             onBlur={() => setError(validBod(bod))}
             type="text"
             value={bod}
-            placeholder="Your date of birth"
+            placeholder="YYYY-MM-DD"
           />
         </lable>
         <br />
@@ -94,7 +121,9 @@ const App = () => {
         </lable>
         <br />
         <button onClick={clearClick}>Clear</button>
-        <button disabled={valid ? '' : 'disabled'}>Submit</button>
+        <button onClick={formSubmit} disabled={valid ? '' : 'disabled'}>
+          Submit
+        </button>
       </form>
       <p>{error}</p>
     </div>
