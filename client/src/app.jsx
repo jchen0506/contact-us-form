@@ -8,7 +8,7 @@ const App = () => {
   const [bod, setBOD] = useState('');
   const [isChecked, setChecked] = useState(false);
   const [valid, setValid] = useState(false);
-  const [error, setError] = useState('This is the error message');
+  const [error, setError] = useState('');
 
   useEffect(() => {
     validation();
@@ -39,7 +39,12 @@ const App = () => {
   };
 
   var validation = () => {
-    if (name.length > 0 && email.length > 0 && isChecked) {
+    if (
+      validName(name) === '' &&
+      validEmail(email) === '' &&
+      validBod(bod) === '' &&
+      isChecked
+    ) {
       setValid(true);
     } else {
       setValid(false);
@@ -54,7 +59,7 @@ const App = () => {
           Name:
           <input
             onChange={nameChange}
-            onBlur={() => validName(name)}
+            onBlur={() => setError(validName(name))}
             type="text"
             value={name}
             placeholder="Your full name"
@@ -65,8 +70,8 @@ const App = () => {
           Email:
           <input
             onChange={emailChange}
-            onBlur={() => validEmail(name)}
-            type="email"
+            onBlur={() => setError(validEmail(email))}
+            type="text"
             value={email}
             placeholder="Your Email"
           />
