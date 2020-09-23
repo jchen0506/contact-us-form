@@ -19,11 +19,11 @@ module.exports = {
 
   validBod: (bod) => {
     var valid = true;
-    var reg = /^(0[1-9]|1[0-2])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}$/;
+    var reg = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
 
     valid = reg.test(bod);
     if (bod !== '' && !valid) {
-      return 'Please enter a valid date in format of MM/DD/YYYY between 1900 and 2099';
+      return 'Please enter a valid date in format of YYYY-MM-DD between 1900 and 2099';
     } else return '';
   },
 };
