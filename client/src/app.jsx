@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { validName, validEmail } from '../util/validation.js';
+
 const App = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -51,6 +53,7 @@ const App = () => {
           Name:
           <input
             onChange={nameChange}
+            onBlur={() => validName(name)}
             type="text"
             value={name}
             placeholder="Your full name"

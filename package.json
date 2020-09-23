@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack -d --watch",
-    "start": "live-server client/dist/index.html"
+    "start": "live-server client/dist"
   },
   "repository": {
     "type": "git",
