@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { validName, validEmail } from '../util/validation.js';
+import { validName, validEmail, validBod } from '../util/validation.js';
 
 const App = () => {
   const [name, setName] = useState('');
@@ -8,6 +8,7 @@ const App = () => {
   const [bod, setBOD] = useState('');
   const [isChecked, setChecked] = useState(false);
   const [valid, setValid] = useState(false);
+  const [error, setError] = useState('This is the error message');
 
   useEffect(() => {
     validation();
@@ -64,6 +65,7 @@ const App = () => {
           Email:
           <input
             onChange={emailChange}
+            onBlur={() => validEmail(name)}
             type="email"
             value={email}
             placeholder="Your Email"
@@ -74,6 +76,7 @@ const App = () => {
           Birth date:
           <input
             onChange={bodChange}
+            onBlur={() => setError(validBod(bod))}
             type="text"
             value={bod}
             placeholder="Your date of birth"
@@ -88,6 +91,7 @@ const App = () => {
         <button onClick={clearClick}>Clear</button>
         <button disabled={valid ? '' : 'disabled'}>Submit</button>
       </form>
+      <p>{error}</p>
     </div>
   );
 };
